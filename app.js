@@ -9,13 +9,7 @@ const resumeScore = require("./routes/resumeScore");
 
 require("dotenv").config();
 
-const client = new S3Client({
-  region: "ap-south-1",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
+const client = new S3Client({});
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
