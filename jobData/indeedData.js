@@ -5,7 +5,7 @@ puppeteer.use(stealthPlugin());
 const indeedData = async (url) => {
   try {
     console.log(1);
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ timeout: 60000 });
     const page = await browser.newPage();
     await page.goto(url);
 
