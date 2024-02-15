@@ -4,6 +4,7 @@ puppeteer.use(stealthPlugin());
 
 const linkedinData = async (url) => {
   try {
+    console.log(1);
     const jobData = {
       comapanyName: "",
       jobTitleContent: "",

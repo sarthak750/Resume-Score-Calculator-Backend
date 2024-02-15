@@ -11,6 +11,8 @@ const jobParser = async (req, res) => {
       jobData = await linkedinData(req.body.url);
     }
 
+    console.log(jobData);
+
     res.status(200).json({
       msg: "Data received",
       jobData: jobData,
