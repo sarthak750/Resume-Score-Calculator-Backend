@@ -9,7 +9,7 @@ const resumeScore = require("./routes/resumeScore");
 
 require("dotenv").config();
 
-const client = new S3Client({});
+const client = new S3Client({ region: "ap-south-1" });
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
