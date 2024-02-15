@@ -27,6 +27,8 @@ const indeedData = async (url) => {
       }
       return null;
     });
+    await page.waitForSelector(".css-1ikmi61");
+
     const jobLocationContent = await page.$eval(
       ".css-1ikmi61",
       (div) => div.innerHTML
