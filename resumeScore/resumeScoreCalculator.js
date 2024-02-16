@@ -12,13 +12,22 @@ const resumeScoreCalculator = async (resumeSections, jobData) => {
     return cleanText.trim();
   }
   console.log(jobData);
-  const jobDescription = extractTextFromHTML(jobData.jobDescriptionContent);
+
+  let jobDescription = "";
+
+  if (jobData.jobDescriptionIndeed) {
+    jobDescription = extractTextFromHTML(jobData.jobDescriptionIndeed);
+  } else {
+    jobDescription = extractTextFromHTML(jobData.jobDescriptionLinkedIn);
+  }
+
+  // const jobDescription = jobData.jobDescriptionContent;
   const DocumentScore = await documentScore(jobDescription, resumeSections);
   const SkillsScore = await skillsScore(jobDescription, resumeSections);
   const EducationScore = await educationScore(jobDescription, resumeSections);
   const ExperienceScore = await experienceScore(jobDescription, resumeSections);
 
-  if (SkillsScore == 0) {
+  if (DocumentScore == 0) {
     return {
       overallScore: 0,
       documentScore: 0,

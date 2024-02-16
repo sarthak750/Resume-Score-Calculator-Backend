@@ -3,6 +3,7 @@ const natural = require("natural");
 const TfIdf = natural.TfIdf;
 
 const skillsScore = async (jobDescription, resumeSections) => {
+  console.log(jobDescription, resumeSections);
   function removeStopWords(text) {
     const tokens = text.toLowerCase().split(/\s+/);
     const filteredTokens = stopwords.removeStopwords(tokens);
